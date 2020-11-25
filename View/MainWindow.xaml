@@ -5,9 +5,77 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CzyjToKod"
         mc:Ignorable="d"
-        Title="MainWindow" Height="800" Width="1280"
+        Title="Czyj To Kod?" Height="800" Width="1280"
 		WindowStartupLocation="CenterScreen">
+    
     <Grid Background="{StaticResource MainBackgroundBrush}">
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <TextBox 
+            Grid.Row="1"
+            Grid.Column="0"
+            Width="500" 
+            Height="50" 
+            BorderThickness="0 0 0 5" 
+            BorderBrush="{StaticResource FirstInputBorderBrush}"
+            Background="{StaticResource MainBackgroundBrush}"
+            TextAlignment="Center"
+            FontSize="28"
+            Foreground="{StaticResource MainFontBrush}"/>
+
+        <TextBox 
+            Grid.Row="1"
+            Grid.Column="1"
+            Width="500" 
+            Height="50" 
+            BorderThickness="0 0 0 5" 
+            BorderBrush="{StaticResource SecondInputBorderBrush}"
+            Background="{StaticResource MainBackgroundBrush}"
+            TextAlignment="Center"
+            FontSize="28"
+            Foreground="{StaticResource MainFontBrush}"/>
+
+        <Button 
+            Grid.Row="2"
+            Grid.ColumnSpan="2" 
+            Height="30" 
+            Width="100" 
+            Content="SPRAWDŹ"
+            Background="{StaticResource CheckButtonBackgroundBrush}"
+            Foreground="{StaticResource MainFontBrush}"/>
+
+            
+        <Path
+            Width="{Binding ActualHeight, RelativeSource={RelativeSource Self}}"
+            Grid.ColumnSpan="2"
+            Grid.Row="3"
+            Stretch="Fill" 
+            Fill="Transparent" 
+            Stroke="{StaticResource MediumChanceOfPlagiarismBrush}" 
+            StrokeThickness="8"
+            Data="M -1,0 A 1,1 0 1 1 1,0 M -1,0 A 1,1 0 1 0 1,0"/>
+
+        <Label
+            Grid.ColumnSpan="2"
+            Grid.Row="3"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            FontSize="58"
+            FontWeight="Light"
+            Foreground="{StaticResource MediumChanceOfPlagiarismBrush}"
+            Padding="0 0 0 5"
+            Content="62%"/>
     </Grid>
+
 </Window>

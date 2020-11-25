@@ -23,4 +23,6 @@
     <Color x:Key="HighChanceOfPlagiarism">#FF8F8F</Color>
     <SolidColorBrush x:Key="HighChanceOfPlagiarismBrush" Color="{StaticResource HighChanceOfPlagiarism}"/>
 
+    <Color x:Key="MainFont">#FFFFFF</Color>
+    <SolidColorBrush x:Key="MainFontBrush" Color="{StaticResource MainFont}"/>
 </ResourceDictionary>
