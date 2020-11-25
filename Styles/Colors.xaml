@@ -1,0 +1,26 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:CzyjToKod.Styles">
+
+    <Color x:Key="MainBackground">#00B9FF</Color>
+    <SolidColorBrush x:Key="MainBackgroundBrush" Color="{StaticResource MainBackground}"/>
+
+    <Color x:Key="FirstInputBorder">#87FFBF</Color>
+    <SolidColorBrush x:Key="FirstInputBorderBrush" Color="{StaticResource FirstInputBorder}"/>
+
+    <Color x:Key="SecondInputBorder">#FF8F8F</Color>
+    <SolidColorBrush x:Key="SecondInputBorderBrush" Color="{StaticResource SecondInputBorder}"/>
+
+    <Color x:Key="CheckButtonBackground">#FF6868</Color>
+    <SolidColorBrush x:Key="CheckButtonBackgroundBrush" Color="{StaticResource CheckButtonBackground}"/>
+
+    <Color x:Key="LowChanceOfPlagiarism">#87FFBF</Color>
+    <SolidColorBrush x:Key="LowChanceOfPlagiarismBrush" Color="{StaticResource LowChanceOfPlagiarism}"/>
+
+    <Color x:Key="MediumChanceOfPlagiarism">#FFDAA2</Color>
+    <SolidColorBrush x:Key="MediumChanceOfPlagiarismBrush" Color="{StaticResource MediumChanceOfPlagiarism}"/>
+
+    <Color x:Key="HighChanceOfPlagiarism">#FF8F8F</Color>
+    <SolidColorBrush x:Key="HighChanceOfPlagiarismBrush" Color="{StaticResource HighChanceOfPlagiarism}"/>
+
+</ResourceDictionary>
