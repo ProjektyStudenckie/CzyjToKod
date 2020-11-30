@@ -22,34 +22,71 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <TextBox 
+        <Grid
             Grid.Row="1"
-            Grid.Column="0"
-            Width="500" 
-            Height="50" 
-            BorderThickness="0 0 0 5" 
-            BorderBrush="{StaticResource FirstInputBorderBrush}"
-            Background="{StaticResource MainBackgroundBrush}"
-            TextAlignment="Center"
-            FontSize="28"
-            Foreground="{StaticResource MainFontBrush}"/>
+            Grid.Column="0">
 
-        <TextBox 
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="9*"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            
+            <TextBox 
+                Grid.Column="1"
+                Height="50" 
+                BorderThickness="0 0 0 5"
+                BorderBrush="{StaticResource FirstInputBorderBrush}"
+                Background="{StaticResource MainBackgroundBrush}"
+                TextAlignment="Center"
+                FontSize="28"
+                Foreground="{StaticResource MainFontBrush}"/>
+
+            <Button
+                Style="{StaticResource IconButton}"
+                Content="{StaticResource FontAwesomeThreeDotsIcon}"
+                Grid.Column="2"
+                Height="50"
+                Margin="-50 0 0 10"
+                HorizontalAlignment="Left"/>
+
+        </Grid>
+
+
+        <Grid
             Grid.Row="1"
-            Grid.Column="1"
-            Width="500" 
-            Height="50" 
-            BorderThickness="0 0 0 5" 
-            BorderBrush="{StaticResource SecondInputBorderBrush}"
-            Background="{StaticResource MainBackgroundBrush}"
-            TextAlignment="Center"
-            FontSize="28"
-            Foreground="{StaticResource MainFontBrush}"/>
+            Grid.Column="1">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="9*"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <TextBox 
+                Grid.Column="1"
+                Height="50" 
+                BorderThickness="0 0 0 5"
+                BorderBrush="{StaticResource SecondInputBorderBrush}"
+                Background="{StaticResource MainBackgroundBrush}"
+                TextAlignment="Center"
+                FontSize="28"
+                Foreground="{StaticResource MainFontBrush}"/>
+
+            <Button
+                Style="{StaticResource IconButton}"
+                Content="{StaticResource FontAwesomeThreeDotsIcon}"
+                Grid.Column="2"
+                Height="50"
+                Margin="-50 0 0 10"
+                HorizontalAlignment="Left"/>
+
+        </Grid>
 
         <Button
             Grid.Row="2"
             Grid.ColumnSpan="2" 
-            Height="70" 
+            Height="55" 
             Width="180"
             Content="SPRAWDŹ"
             Background="{StaticResource CheckButtonBackgroundBrush}"
