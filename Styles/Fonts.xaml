@@ -32,6 +32,7 @@
     <system:Double x:Key="FontSizeLarge">20</system:Double>
     <system:Double x:Key="FontSizeXLarge">24</system:Double>
     <system:Double x:Key="FontSizeXXLarge">30</system:Double>
+    <system:Double x:Key="FontSizeXXXLarge">46</system:Double>
 
 
     <system:String x:Key="FontAwesomeThreeDotsIcon">&#xf141;</system:String>
