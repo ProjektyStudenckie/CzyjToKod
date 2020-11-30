@@ -14,6 +14,9 @@
     <Color x:Key="CheckButtonBackground">#FF6868</Color>
     <SolidColorBrush x:Key="CheckButtonBackgroundBrush" Color="{StaticResource CheckButtonBackground}"/>
 
+    <Color x:Key="CheckButtonHoverBackground">#FF8888</Color>
+    <SolidColorBrush x:Key="CheckButtonHoverBackgroundBrush" Color="{StaticResource CheckButtonHoverBackground}"/>
+
     <Color x:Key="LowChanceOfPlagiarism">#87FFBF</Color>
     <SolidColorBrush x:Key="LowChanceOfPlagiarismBrush" Color="{StaticResource LowChanceOfPlagiarism}"/>
 
