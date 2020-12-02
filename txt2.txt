@@ -1,0 +1,43 @@
+namespace InzynieriaOprogramowania
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // files to be re-intrerpreted
+            string path1 = @"txt1.txt";
+            string path2 = @"txt2.txt";
+
+            ReadFiles(path1, path2);
+        }
+
+        static private void ReadFiles(string path1, string path2)
+        {
+
+            string[] file1 = File.ReadLines(path1).ToArray();
+            string[] file2 = File.ReadLines(path2).ToArray();
+
+            ReinterpretFiles(file1, file2);
+        }
+
+        static private void ReinterpretFiles(string[] file1, string[] file2)
+        {
+            WriteFiles(file1, file2);
+        }
+
+        static private void WriteFiles(string[] file1, string[] file2)
+        {
+
+            // Create new directory and files
+            string dir = Path.Combine(Directory.GetCurrentDirectory(), "ReInterpretedFiles");
+            if (!Directory.Exists(dir)) Directory.CreateDirectory(dir);
+
+            string pathNewString1 = Path.Combine(dir, "reinterpreted_file_1.txt");
+            string pathNewString2 = Path.Combine(dir, "reinterpreted_file_2.txt");
+
+            // Write strings to files
+            File.WriteAllLines(pathNewString1, file1);
+            File.WriteAllLines(pathNewString2, file2);
+        }
+    }
+}
