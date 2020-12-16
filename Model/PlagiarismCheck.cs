@@ -1,16 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CzyjToKod.Model
 {
     static class PlagiarismCheck
     {
-        public static void CheckCode()
+        public static int TestForPlagiarism(string file1Path, string file2Path)
         {
-            Console.WriteLine("Check Code");
+            Console.WriteLine($"Check Code - {file1Path} {file2Path}");
+
+            return new Random().Next(100);
         }
     }
 }

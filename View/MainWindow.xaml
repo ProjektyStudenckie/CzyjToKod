@@ -53,7 +53,8 @@
                 BorderThickness="0 0 0 5"
                 BorderBrush="{StaticResource FirstInputBorderBrush}"
                 Background="{StaticResource MainBackgroundBrush}"
-                Text="{Binding File1Name}"
+                Padding="0 0 50 0"
+                Text="{Binding File1Path}"
                 TextAlignment="Center"
                 FontSize="{StaticResource FontSizeXLarge}"
                 Foreground="{StaticResource MainFontBrush}"/>
@@ -75,6 +76,14 @@
                 Margin="-5 -5 0 0"
                 FontFamily="{StaticResource LatoBold}"
                 Content="{Binding File1Length}"/>
+            
+            <Label
+                Grid.Row="1"
+                Grid.Column="1"
+                Foreground="{StaticResource CheckButtonBackgroundBrush}"
+                Margin="-5 -5 0 0"
+                FontFamily="{StaticResource LatoBold}"
+                Content="{Binding File1Invalid}"/>
 
         </Grid>
 
@@ -101,7 +110,8 @@
                 BorderThickness="0 0 0 5"
                 BorderBrush="{StaticResource SecondInputBorderBrush}"
                 Background="{StaticResource MainBackgroundBrush}"
-                Text="{Binding File2Name}"
+                Text="{Binding File2Path}"
+                Padding="0 0 50 0"
                 TextAlignment="Center"
                 FontSize="{StaticResource FontSizeXLarge}"
                 Foreground="{StaticResource MainFontBrush}"/>
@@ -123,6 +133,14 @@
                 Margin="-5 -5 0 0"
                 FontFamily="{StaticResource LatoBold}"
                 Content="{Binding File2Length}"/>
+
+            <Label
+                Grid.Row="1"
+                Grid.Column="1"
+                Foreground="{StaticResource CheckButtonBackgroundBrush}"
+                Margin="-5 -5 0 0"
+                FontFamily="{StaticResource LatoBold}"
+                Content="{Binding File2Invalid}"/>
 
         </Grid>
 
