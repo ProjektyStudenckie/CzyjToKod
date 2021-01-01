@@ -29,6 +29,7 @@ namespace CzyjToKod.ViewModel
                 } catch(Exception e)
                 {
                     File1Invalid = e.Message;
+                    File1Length = "";
                 }
 
                 onPropertyChanged(nameof(File1Length));
@@ -54,6 +55,7 @@ namespace CzyjToKod.ViewModel
                 catch (Exception e)
                 {
                     File2Invalid = e.Message;
+                    File2Length = "";
                 }
 
                 onPropertyChanged(nameof(File2Length));
@@ -64,6 +66,7 @@ namespace CzyjToKod.ViewModel
         public string File2Length { get; private set; }
         public string File2Invalid { get; private set; }
 
+        public string InvalidInput { get; private set; }
         public string Result { get; set; }
 
         #endregion
@@ -120,14 +123,20 @@ namespace CzyjToKod.ViewModel
                 {
                     _handleCheckClick = new RelayCommand(
                         arg => {
-                            if(File1Invalid.Length == 0 && File2Invalid.Length == 0)
+
+                            if (File1Invalid.Length == 0 && File2Invalid.Length == 0)
                             {
                                 Result = $"{PlagiarismCheck.TestForPlagiarism(File1Path, File2Path)}%";
 
                                 onPropertyChanged(nameof(Result));
+                                InvalidInput = "";
+                            }
+                            else
+                            {
+                                InvalidInput = "Nieprawidłowe pliki!";
                             }
                         },
-                        arg => true
+                        arg => (File1Invalid == "" && File2Invalid == "")
                      );
                 }
                 return _handleCheckClick;

@@ -144,17 +144,39 @@
 
         </Grid>
 
-        <Button
+        <Grid
             Grid.Row="2"
-            Grid.ColumnSpan="2" 
-            Height="55" 
-            Width="180"
-            Command="{Binding HandleCheckClick}"
-            Content="SPRAWDŹ"
-            Background="{StaticResource CheckButtonBackgroundBrush}"
-            Foreground="{StaticResource MainFontBrush}"/>
+            Grid.ColumnSpan="2">
 
-            
+            <Grid.RowDefinitions>
+                <RowDefinition Height="3*"/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+
+            <Button
+                Grid.Row="0"
+                Height="55" 
+                Width="180"
+                Command="{Binding HandleCheckClick}"
+                Content="SPRAWDŹ"
+                Background="{StaticResource CheckButtonBackgroundBrush}"
+                Foreground="{StaticResource MainFontBrush}"/>
+
+            <Label
+                Grid.Row="1"
+                Foreground="{StaticResource CheckButtonBackgroundBrush}"
+                Margin="-5 -5 0 0"
+                FontSize="{StaticResource FontSizeXLarge}"
+                FontFamily="{StaticResource LatoBold}"
+                HorizontalContentAlignment="Center"
+                Content="{Binding InvalidInput}"/>
+        </Grid>
+
+        
+
+
         <Path
             Width="{Binding ActualHeight, RelativeSource={RelativeSource Self}}"
             Grid.ColumnSpan="2"
