@@ -8,17 +8,25 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace InzynieriaOprogramowania
+namespace CzyjToKod.Model
 {
     class Reinterpreter
     {
         private static string workingDirectory = Environment.CurrentDirectory;
-        private static string Direction = Directory.GetParent(workingDirectory).Parent.Parent.FullName;
+        private static string Direction = Directory.GetParent(workingDirectory).Parent.FullName+ "\\Working";
 
         public static void StartReinterpreting(string path1, string path2)
         {
             ReadFiles(path1, path2);
-            Process.Start(@"cmd.exe ", @"/c "+ Direction + "//Working//cosine.py");
+
+            var startInfo = new ProcessStartInfo();
+
+            startInfo.WorkingDirectory = Direction;
+            startInfo.FileName = @"cmd.exe";
+            startInfo.Arguments = "/c cosine.py";
+            startInfo.UseShellExecute = true;
+
+            Process.Start(startInfo);
         }
 
         static private void ReadFiles(string path1, string path2)

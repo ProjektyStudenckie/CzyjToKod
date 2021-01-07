@@ -8,6 +8,8 @@ namespace CzyjToKod.Model
         {
             Console.WriteLine($"Check Code - {file1Path} {file2Path}");
 
+            Reinterpreter.StartReinterpreting(file1Path, file2Path);
+
             return new Random().Next(100);
         }
     }

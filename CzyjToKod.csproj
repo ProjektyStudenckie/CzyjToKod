@@ -59,6 +59,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Model\PlagiarismCheck.cs" />
+    <Compile Include="Model\Reinterpreter.cs" />
     <Compile Include="ViewModel\Base\RelayCommand.cs" />
     <Compile Include="ViewModel\Base\ViewModelBase.cs" />
     <Page Include="Styles\Buttons.xaml">
