@@ -13,7 +13,7 @@ namespace CzyjToKod.Model
     class Reinterpreter
     {
         private static string workingDirectory = Environment.CurrentDirectory;
-        private static string Direction = Directory.GetParent(workingDirectory).Parent.FullName+ "\\Working";
+        public static string Direction = Directory.GetParent(workingDirectory).Parent.FullName+ "\\Working";
 
         public static void StartReinterpreting(string path1, string path2)
         {
@@ -51,7 +51,7 @@ namespace CzyjToKod.Model
 
         static private List<string> ArrangeFile(List<string> file)
         {
-            string[] variables = { "string", "int", "float", "char", "bool" };
+            string[] variables = { "string", "int", "float", "char", "bool", "var", "val" };
             int varCounter = 0;
 
             // delete comments

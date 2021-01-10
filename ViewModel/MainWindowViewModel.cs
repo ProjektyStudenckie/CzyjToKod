@@ -3,6 +3,7 @@ using CzyjToKod.ViewModel.Base;
 using Microsoft.Win32;
 using System;
 using System.IO;
+using System.Threading.Tasks;
 using System.Windows.Input;
 
 
@@ -126,9 +127,11 @@ namespace CzyjToKod.ViewModel
 
                             if (File1Invalid.Length == 0 && File2Invalid.Length == 0)
                             {
-                                Result = $"{PlagiarismCheck.TestForPlagiarism(File1Path, File2Path)}%";
+                                File.Delete(Reinterpreter.Direction + "\\result.txt");
 
-                                onPropertyChanged(nameof(Result));
+
+                                PlagiarismCheck.TestForPlagiarism(File1Path, File2Path);
+                                WaitForResult();
                                 InvalidInput = "";
                             }
                             else
@@ -144,5 +147,20 @@ namespace CzyjToKod.ViewModel
         }
 
         #endregion
+
+        private async void WaitForResult()
+        {
+            await Task.Run(() =>
+            {
+                while (!File.Exists(Reinterpreter.Direction + "\\result.txt")) ;
+                System.Threading.Thread.Sleep(1000);
+                float value = float.Parse(File.ReadAllText(Reinterpreter.Direction + "\\result.txt").Replace(".", ","));
+                float result = value * 100;
+                int resultInt = (int)result;
+                Result = resultInt.ToString();
+                onPropertyChanged(nameof(Result));
+            });
+ 
+        }
     }
 }
