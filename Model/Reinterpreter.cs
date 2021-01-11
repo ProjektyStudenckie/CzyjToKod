@@ -23,7 +23,7 @@ namespace CzyjToKod.Model
 
             startInfo.WorkingDirectory = Direction;
             startInfo.FileName = @"cmd.exe";
-            startInfo.Arguments = "/c cosine.py";
+            startInfo.Arguments = "/c python cosine.py";
             startInfo.UseShellExecute = true;
 
             Process.Start(startInfo);

@@ -1,10 +1,11 @@
 import math
 import re
+import jellyfish
 from collections import Counter
 
 WORD = re.compile(r"\w+")
 
-
+import json
 def calculateCosineSimilarity(vec1, vec2):
     intersection = set(vec1.keys()) & set(vec2.keys())
     numerator = sum([vec1[x] * vec2[x] for x in intersection])
@@ -19,7 +20,7 @@ def calculateCosineSimilarity(vec1, vec2):
         return float(numerator) / denominator
 
 
-def text_to_vector(text):
+def textToVector(text):
     words = WORD.findall(text)
     return Counter(words)
 
@@ -30,10 +31,20 @@ text1 = second.read()
 text2 = first.read()
 
 
-vector1 = text_to_vector(text1)
-vector2 = text_to_vector(text2)
+vector1 = textToVector(text1)
+vector2 = textToVector(text2)
 
 cosine = calculateCosineSimilarity(vector1, vector2)
 
-result = open("result.txt", "w")
-result.write(str(cosine))
+data = {
+    'cosine': cosine,
+    'jaro_similarity': jellyfish.jaro_similarity(text1, text2),
+    'jaro_winkler_similarity': jellyfish.jaro_winkler_similarity(text1, text2),
+    'levenshtein_distance': jellyfish.levenshtein_distance(text1, text2),
+    'damerau_levenshtein_distance': jellyfish.damerau_levenshtein_distance(text1, text2),
+    'hamming_distance': jellyfish.hamming_distance(text1, text2)
+
+}
+
+with open('results.txt', 'w') as outfile:
+    json.dump(data, outfile)

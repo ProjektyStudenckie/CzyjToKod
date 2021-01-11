@@ -1,6 +1,5 @@
 <?php
-$host = "localhost";
-$db_user = "root";
-$db_password = "";
-$db_name = "osadnicy";
+session_start();
+session_unset();
+header('Location: index.php');
 ?>

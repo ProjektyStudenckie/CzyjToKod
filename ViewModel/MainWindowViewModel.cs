@@ -5,6 +5,8 @@ using System;
 using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 
 namespace CzyjToKod.ViewModel
@@ -127,7 +129,7 @@ namespace CzyjToKod.ViewModel
 
                             if (File1Invalid.Length == 0 && File2Invalid.Length == 0)
                             {
-                                File.Delete(Reinterpreter.Direction + "\\result.txt");
+                                File.Delete(Reinterpreter.Direction + "\\results.txt");
 
 
                                 PlagiarismCheck.TestForPlagiarism(File1Path, File2Path);
@@ -152,9 +154,14 @@ namespace CzyjToKod.ViewModel
         {
             await Task.Run(() =>
             {
-                while (!File.Exists(Reinterpreter.Direction + "\\result.txt")) ;
+                while (!File.Exists(Reinterpreter.Direction + "\\results.txt")) ;
                 System.Threading.Thread.Sleep(1000);
-                float value = float.Parse(File.ReadAllText(Reinterpreter.Direction + "\\result.txt").Replace(".", ","));
+                var jsonString = File.ReadAllText(Reinterpreter.Direction + "\\results.txt");
+                var results = JsonSerializer.Deserialize<ResultsData>(jsonString);
+
+                // tu możesz otrzymać dostęp do danych z jsona tak jak w tym Logu
+                Console.WriteLine(results.cosine.ToString()+ results.damerau_levenshtein_distance.ToString()+ results.hamming_distance.ToString()+ results.levenshtein_distance.ToString()+ results.jaro_similarity.ToString()+ results.jaro_winkler_similarity.ToString());
+                float value = results.cosine;
                 float result = value * 100;
                 int resultInt = (int)result;
                 Result = resultInt.ToString();
