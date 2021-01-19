@@ -1,0 +1,3 @@
+[submodule "CzyjToKod.UnitTest"]
+	path = CzyjToKod.UnitTest
+	url = https://github.com/ProjektyStudenckie/CzyjToKod.UnitTest

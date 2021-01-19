@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace CzyjToKod.Model
 {
-    class Reinterpreter
+    public static class Reinterpreter
     {
         private static string workingDirectory = Environment.CurrentDirectory;
         public static string Direction = Directory.GetParent(workingDirectory).Parent.FullName+ "\\Working";
