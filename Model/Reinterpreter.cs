@@ -51,22 +51,76 @@ namespace CzyjToKod.Model
 
         static private List<string> ArrangeFile(List<string> file)
         {
-            string[] variables = { "string", "int", "float", "char", "bool", "var", "val" };
+            string[] variables = { 
+                "string", "int", "float", "char", "bool", 
+                "double", "byte", "long", "short", "var", "val",
+            };
             int varCounter = 0;
+
+            bool shouldDelete = false;
+            int index, lastIndex;
 
             // delete comments
             for (int i = 0; i < file.Count; i++)
             {
                 if (file[i].Contains("//"))
-                    file.RemoveAt(i);
+                {
+                    index = file[i].IndexOf("//");
+
+                    // delete everything after comment signs
+                    file[i] = file[i].Substring(0, index);
+                }
+
+                else if (file[i].Contains("/*"))
+                {
+                    shouldDelete = true;
+
+                    index = file[i].IndexOf("/*");
+
+                    if (file[i].Contains("*/"))
+                    {
+                        shouldDelete = false;
+
+                        // delete everything between comment signs
+                        lastIndex = file[i].IndexOf("*/");
+                        file[i] = file[i].Substring(0, index) + file[i].Substring(lastIndex + 2);
+                    }
+                    
+                    else
+                    {
+                        // delete everything after "/*"
+                        file[i] = file[i].Substring(0, index);
+                    }
+                }
+
+                else if (file[i].Contains("*/"))
+                {
+                    shouldDelete = false;
+
+                    lastIndex = file[i].IndexOf("*/");
+                    file[i] = file[i].Substring(lastIndex + 2);
+                }
+
+                if (shouldDelete && !file[i].Contains("*/") && !file[i].Contains("/*"))
+                {
+                    file[i] = "";
+                }
             }
 
-            // todo funckje 
-            // todo iteracje zmiennych
+            // delete unnecessary white spaces and lines
+            for (int i = 0; i < file.Count; i++)
+            {
+                if (file[i] == "")
+                    file.RemoveAt(i);
+                else 
+                    file[i].Trim();
+            }
 
             // find and replace variables' names
             for (int i = 0; i < file.Count; i++)
             {
+                file[i] = file[i].ToLower();
+
                 for (int j = 0; j < variables.Length; j++)
                 {
                     if (file[i].Contains(variables[j]))
