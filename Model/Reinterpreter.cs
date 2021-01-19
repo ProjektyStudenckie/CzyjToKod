@@ -12,7 +12,7 @@ namespace CzyjToKod.Model
 {
     public static class Reinterpreter
     {
-        private static string workingDirectory = Environment.CurrentDirectory;
+        private static string workingDirectory = System.IO.Directory.GetCurrentDirectory();
         public static string Direction = Directory.GetParent(workingDirectory).Parent.FullName+ "\\Working";
 
         public static void StartReinterpreting(string path1, string path2)
