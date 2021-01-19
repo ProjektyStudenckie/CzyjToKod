@@ -1,41 +1,12 @@
-using System;
-using System.Windows.Input;
+using System.ComponentModel;
 namespace CzyjToKod.ViewModel.Base
 {
-public class RelayCommand : ICommand
+public class ViewModelBase : INotifyPropertyChanged
 {
-#region Prywatne pola
-private readonly Action<object> _execute;
-private readonly Predicate<object> _canExecute;
-#endregion
-#region Konstruktor
-public RelayCommand(Action<object> execute, Predicate<object> canExecute = null)
+public event PropertyChangedEventHandler PropertyChanged;
+string zmiennaString0
 {
-if (execute == null) throw new ArgumentNullException(nameof(execute));
-_execute = execute;
-_canExecute = canExecute;
+PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 }
-#endregion
-#region Składowe ICommand
-bool zmiennaBool0
-{
-return _canExecute == null ? true : _canExecute(parameter);
-}
-public event EventHandler CanExecuteChanged
-{
-add
-{
-val zmiennaVal1 = null) CommandManager.RequerySuggested += ue;
-}
-remove
-{
-val zmiennaVal2 = null) CommandManager.RequerySuggested -= ue;
-}
-}
-public void Execute(object parameter)
-{
-_execute(parameter);
-}
-#endregion
 }
 }
