@@ -6,14 +6,16 @@ using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using System.Text.Json;
-using System.Text.Json.Serialization;
-using System.Windows;
-using System.Windows.Controls;
 
 namespace CzyjToKod.ViewModel
 {
+    /// <summary>
+    /// View model of the main window of our application
+    /// </summary>
     class MainWindowViewModel : ViewModelBase
     {
+        #region Private Properties
+
         private const string nameLevenshtein = "1. Levenshtein: ";
         private const string nameDamerau = "2. Damerau Levenshtein: ";
         private const string nameHamming = "3. Hamming: ";
@@ -34,6 +36,9 @@ namespace CzyjToKod.ViewModel
         private string _ValueDif1 = nameCosine;
         private string _ValueDif2 = nameJaro;
         private string _ValueDif3 = nameJaroWinkler;
+
+        #endregion
+
 
         #region Public Properties
 
@@ -174,6 +179,8 @@ namespace CzyjToKod.ViewModel
         public string File2Invalid { get; private set; }
 
         public string InvalidInput { get; private set; }
+
+        // Result of plagiarism check
         public string Result { get; set; }
 
         #endregion
@@ -255,6 +262,9 @@ namespace CzyjToKod.ViewModel
         }
         #endregion
 
+
+        #region Private Methods
+
         private async void WaitForResult()
         {
             await Task.Run(() =>
@@ -273,7 +283,7 @@ namespace CzyjToKod.ViewModel
                 float valueJaroWinkler = results.jaro_winkler_similarity * s3Value;
                 float result = ((valueCosine + valueJaro + valueJaroWinkler) / wholeWeight) * 100;
                 int resultInt = (int)result;
-                Result = resultInt.ToString();
+                Result = $"{resultInt}%";
                 onPropertyChanged(nameof(Result));
             });
 
@@ -281,7 +291,6 @@ namespace CzyjToKod.ViewModel
 
         private void SetUiResults(ResultsData results)
         {
-
             Value1 = results.levenshtein_distance.ToString();
             Value2 = results.damerau_levenshtein_distance.ToString();
             Value3 = results.hamming_distance.ToString();
@@ -289,6 +298,8 @@ namespace CzyjToKod.ViewModel
             ValueDif2 = results.jaro_similarity.ToString();
             ValueDif3 = results.jaro_winkler_similarity.ToString();
         }
+
+        #endregion
 
     }
 }

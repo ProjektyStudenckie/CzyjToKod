@@ -1,9 +1,9 @@
-﻿<Window x:Class="CzyjToKod.MainWindow"
+﻿<!-- Our application contains only this window -->
+<Window x:Class="CzyjToKod.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:CzyjToKod"
         xmlns:vm="clr-namespace:CzyjToKod.ViewModel"
         mc:Ignorable="d"
         Title="Czyj To Kod?" 
@@ -12,11 +12,12 @@
         MinHeight="600"
         MinWidth="1000"
 		WindowStartupLocation="CenterScreen">
-
+    
     <Window.Resources>
         <vm:MainWindowViewModel x:Key="mainWindowViewModel"/>
     </Window.Resources>
 
+    <!-- Main grid of the window -->
     <Grid
         DataContext="{StaticResource mainWindowViewModel}"
         Background="{StaticResource MainBackgroundBrush}">
@@ -33,6 +34,7 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
+        <!-- Grid containing textbox and button to select first file -->
         <Grid
             Grid.Row="1"
             Grid.Column="0"
@@ -49,6 +51,8 @@
                 <RowDefinition Height="25"/>
             </Grid.RowDefinitions>
             
+            
+            <!-- TextBox when user can enter path to the first file -->
             <TextBox 
                 Grid.Column="1"
                 Height="40" 
@@ -61,6 +65,7 @@
                 FontSize="{StaticResource FontSizeXLarge}"
                 Foreground="{StaticResource MainFontBrush}"/>
 
+            <!-- Button opening file explorer to chose first file -->
             <Button
                 Style="{StaticResource IconButton}"
                 Content="{StaticResource FontAwesomeThreeDotsIcon}"
@@ -71,6 +76,7 @@
                 Margin="-50 0 0 10"
                 HorizontalAlignment="Left"/>
 
+            <!-- Label with length of the first file -->
             <Label
                 Grid.Row="1"
                 Grid.Column="1"
@@ -79,6 +85,7 @@
                 FontFamily="{StaticResource LatoBold}"
                 Content="{Binding File1Length}"/>
             
+            <!-- Label indicating error while selecting first file -->
             <Label
                 Grid.Row="1"
                 Grid.Column="1"
@@ -89,7 +96,7 @@
 
         </Grid>
 
-
+        <!-- Grid containing textbox and button to select second file -->
         <Grid
             Grid.Row="1"
             Grid.Column="1"
@@ -106,6 +113,8 @@
                 <RowDefinition Height="25"/>
             </Grid.RowDefinitions>
 
+
+            <!-- TextBox when user can enter path to the second file -->
             <TextBox 
                 Grid.Column="1"
                 Height="40" 
@@ -118,6 +127,8 @@
                 FontSize="{StaticResource FontSizeXLarge}"
                 Foreground="{StaticResource MainFontBrush}"/>
 
+
+            <!-- Button opening file explorer to chose second file -->
             <Button
                 Style="{StaticResource IconButton}"
                 Content="{StaticResource FontAwesomeThreeDotsIcon}"
@@ -128,6 +139,8 @@
                 Margin="-50 0 0 10"
                 HorizontalAlignment="Left"/>
 
+
+            <!-- Label with length of the second file -->
             <Label
                 Grid.Row="1"
                 Grid.Column="1"
@@ -136,6 +149,7 @@
                 FontFamily="{StaticResource LatoBold}"
                 Content="{Binding File2Length}"/>
 
+            <!-- Label indicating error while selecting second file -->
             <Label
                 Grid.Row="1"
                 Grid.Column="1"
@@ -146,6 +160,7 @@
 
         </Grid>
 
+        <!-- Grid with sliders for different simmilarities -->
         <Grid Grid.Row="2" Grid.RowSpan="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width=".2*"/>
@@ -158,18 +173,21 @@
 
             <StackPanel Grid.Row="0" Grid.RowSpan="2" Grid.Column="1" VerticalAlignment="Top">
 
+                <!-- DockPanel containing Cosine Similarity slider -->
                 <DockPanel VerticalAlignment="Center" Margin="10">
                     <Label Foreground="White" FontFamily="{StaticResource LatoBold}" DockPanel.Dock="Left" FontWeight="Bold" Content="Cosine Similarity" Width="160"/>
                     <Label Foreground="White" FontFamily="{StaticResource LatoBold}" DockPanel.Dock="Right" Width="40" Content="{Binding ElementName=s1Value, Path=Value, UpdateSourceTrigger=PropertyChanged}" />
                     <Slider x:Name="s1Value" Minimum="1" Maximum="100" TickFrequency="1" IsSnapToTickEnabled="True" Value="{Binding s1Value}"/>
                 </DockPanel>
 
+                <!-- DockPanel containing Jaro Similarity slider -->
                 <DockPanel VerticalAlignment="Center" Margin="10">
                     <Label Foreground="White" FontFamily="{StaticResource LatoBold}" DockPanel.Dock="Left" FontWeight="Bold" Content="Jaro Similarity" Width="160"/>
                     <Label Foreground="White" FontFamily="{StaticResource LatoBold}" DockPanel.Dock="Right" Width="40" Content="{Binding ElementName=s2Value, Path=Value, UpdateSourceTrigger=PropertyChanged}" />
                     <Slider x:Name="s2Value" Minimum="1" Maximum="100" TickFrequency="1" IsSnapToTickEnabled="True" Value="{Binding s2Value}"/>
                 </DockPanel>
 
+                <!-- DockPanel containing Jaro Winkler Similarity slider -->
                 <DockPanel VerticalAlignment="Center" Margin="10">
                     <Label Foreground="White" FontFamily="{StaticResource LatoBold}" DockPanel.Dock="Left" FontWeight="Bold" Content="Jaro Winkler Similarity" Width="160"/>
                     <Label Foreground="White" FontFamily="{StaticResource LatoBold}" DockPanel.Dock="Right" Width="40" Content="{Binding ElementName=s3Value, Path=Value, UpdateSourceTrigger=PropertyChanged}" />
@@ -180,6 +198,7 @@
 
         </Grid>
 
+        <!-- Grid with main check button and error label -->
         <Grid
             Grid.Row="2"
             Grid.ColumnSpan="2">
@@ -191,6 +210,7 @@
             </Grid.RowDefinitions>
 
 
+            <!-- Main button to start plagiraism check -->
             <Button
                 Grid.Row="0"
                 Height="55" 
@@ -200,6 +220,7 @@
                 Background="{StaticResource CheckButtonBackgroundBrush}"
                 Foreground="{StaticResource MainFontBrush}"/>
 
+            <!-- Label indicating invalid file(s) -->
             <Label
                 Grid.Row="1"
                 Foreground="{StaticResource CheckButtonBackgroundBrush}"
@@ -211,6 +232,7 @@
         </Grid>
 
 
+        <!-- Grid containing labels for different distances and measures -->
         <Grid Grid.Column="1" Grid.Row="2" Grid.RowSpan="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
@@ -223,13 +245,21 @@
             </Grid.RowDefinitions>
 
             <StackPanel Grid.Row="0" Grid.RowSpan="2" Grid.Column="1" VerticalAlignment="Top">
+                <!-- Calculated Distances -->
                 <Label Foreground="White" FontFamily="{StaticResource LatoBold}" DockPanel.Dock="Left" FontWeight="Bold" Content="Wyliczone Dystanse:"/>
+                <!-- Levenshtein -->
                 <Label Foreground="White" FontFamily="{StaticResource LatoBold}" DockPanel.Dock="Left" FontWeight="Bold" Content="{Binding Value1}"/>
+                <!-- Damerau Levenshtein -->
                 <Label Foreground="White" FontFamily="{StaticResource LatoBold}" DockPanel.Dock="Left" FontWeight="Bold" Content="{Binding Value2}"/>
+                <!-- Hamming -->
                 <Label Foreground="White" FontFamily="{StaticResource LatoBold}" DockPanel.Dock="Left" FontWeight="Bold" Content="{Binding Value3}"/>
+                <!-- All Measures -->
                 <Label Foreground="White" FontFamily="{StaticResource LatoBold}" DockPanel.Dock="Left" FontWeight="Bold" Content="Wszystkie Miary:"/>
+                <!-- Cosine -->
                 <Label Foreground="White" FontFamily="{StaticResource LatoBold}" DockPanel.Dock="Left" FontWeight="Bold" Content="{Binding ValueDif1}"/>
+                <!-- Jaro -->
                 <Label Foreground="White" FontFamily="{StaticResource LatoBold}" DockPanel.Dock="Left" FontWeight="Bold" Content="{Binding ValueDif2}"/>
+                <!-- Jaro Winkler -->
                 <Label Foreground="White" FontFamily="{StaticResource LatoBold}" DockPanel.Dock="Left" FontWeight="Bold" Content="{Binding ValueDif3}"/>
             </StackPanel>
 
@@ -237,6 +267,7 @@
 
 
 
+        <!-- Path with circle surrounding percentage label -->
         <Path
             Width="{Binding ActualHeight, RelativeSource={RelativeSource Self}}"
             Grid.ColumnSpan="2"
@@ -247,6 +278,7 @@
             StrokeThickness="8"
             Data="M -1,0 A 1,1 0 1 1 1,0 M -1,0 A 1,1 0 1 0 1,0"/>
 
+        <!-- Plagiarism percentage label -->
         <Label
             Grid.ColumnSpan="2"
             Grid.Row="3"

@@ -21,5 +21,10 @@ namespace CzyjToKod.Model
         public float damerau_levenshtein_distance;
         [JsonInclude]
         public float hamming_distance;
+
+        public override string ToString()
+        {
+            return "Cosine: " + cosine + " jaro_similarity: " + jaro_similarity+ " jaro_winkler_similarity: " + jaro_winkler_similarity + " levenshtein_distance: " + levenshtein_distance + " damerau_levenshtein_distance: " + damerau_levenshtein_distance + " hamming_distance: " + hamming_distance;
+        }
     }
 }
