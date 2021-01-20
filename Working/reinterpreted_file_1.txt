@@ -1,12 +1,24 @@
-using system.componentmodel;
-namespace czyjtokod.viewmodel.base
+class passbyreftest
 {
-public class viewmodelbase : inotifypropertychanged
-{
-public event propertychangedeventhandler propertychanged;
 string zmiennaString0
 {
-propertychanged?.invoke(this, new propertychangedeventargs(propertyname));
+s = "changed";
 }
+int zmiennaInt1
+{
+int zmiennaInt2 = x;
+x = y;
+y = temp;
+}
+string zmiennaString3
+{
+int zmiennaInt4 = 5;
+int zmiennaInt5 = 10;
+string zmiennaString6 = "still unchanged";
+swap(ref a, ref b);
+changeme(out s);
+system.console.writeline("a = " + a + ", " +
+"b = " + b + ", " +
+"s = " + s);
 }
 }

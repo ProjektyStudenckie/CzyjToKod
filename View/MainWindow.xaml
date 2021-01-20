@@ -175,21 +175,21 @@
 
                 <!-- DockPanel containing Cosine Similarity slider -->
                 <DockPanel VerticalAlignment="Center" Margin="10">
-                    <Label Foreground="White" FontFamily="{StaticResource LatoBold}" DockPanel.Dock="Left" FontWeight="Bold" Content="Cosine Similarity" Width="160"/>
+                    <Label Foreground="White" FontFamily="{StaticResource LatoBold}" DockPanel.Dock="Left" FontWeight="Bold" Content="Cosine" Width="100"/>
                     <Label Foreground="White" FontFamily="{StaticResource LatoBold}" DockPanel.Dock="Right" Width="40" Content="{Binding ElementName=s1Value, Path=Value, UpdateSourceTrigger=PropertyChanged}" />
                     <Slider x:Name="s1Value" Minimum="0" Maximum="100" TickFrequency="1" IsSnapToTickEnabled="True" Value="{Binding s1Value}"/>
                 </DockPanel>
 
                 <!-- DockPanel containing Jaro Similarity slider -->
                 <DockPanel VerticalAlignment="Center" Margin="10">
-                    <Label Foreground="White" FontFamily="{StaticResource LatoBold}" DockPanel.Dock="Left" FontWeight="Bold" Content="Jaro Similarity" Width="160"/>
+                    <Label Foreground="White" FontFamily="{StaticResource LatoBold}" DockPanel.Dock="Left" FontWeight="Bold" Content="Jaro" Width="100"/>
                     <Label Foreground="White" FontFamily="{StaticResource LatoBold}" DockPanel.Dock="Right" Width="40" Content="{Binding ElementName=s2Value, Path=Value, UpdateSourceTrigger=PropertyChanged}" />
                     <Slider x:Name="s2Value" Minimum="0" Maximum="100" TickFrequency="1" IsSnapToTickEnabled="True" Value="{Binding s2Value}"/>
                 </DockPanel>
 
                 <!-- DockPanel containing Jaro Winkler Similarity slider -->
                 <DockPanel VerticalAlignment="Center" Margin="10">
-                    <Label Foreground="White" FontFamily="{StaticResource LatoBold}" DockPanel.Dock="Left" FontWeight="Bold" Content="Jaro Winkler Similarity" Width="160"/>
+                    <Label Foreground="White" FontFamily="{StaticResource LatoBold}" DockPanel.Dock="Left" FontWeight="Bold" Content="Jaro Winkler" Width="100"/>
                     <Label Foreground="White" FontFamily="{StaticResource LatoBold}" DockPanel.Dock="Right" Width="40" Content="{Binding ElementName=s3Value, Path=Value, UpdateSourceTrigger=PropertyChanged}" />
                     <Slider x:Name="s3Value" Minimum="0" Maximum="100" TickFrequency="1" IsSnapToTickEnabled="True" Value="{Binding s3Value}"/>
                 </DockPanel>

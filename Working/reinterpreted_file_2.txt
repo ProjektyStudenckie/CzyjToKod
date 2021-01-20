@@ -1,41 +1,24 @@
-using system;
-using system.windows.input;
-namespace czyjtokod.viewmodel.base
-{
-public class relaycommand : icommand
-{
-#region prywatne pola
-private readonly action<object> _execute;
-private readonly predicate<object> _canexecute;
-#endregion
-#region konstruktor
-public relaycommand(action<object> execute, predicate<object> canexecute = null)
-{
-if (execute == null) throw new argumentnullexception(nameof(execute));
-_execute = execute;
-_canexecute = canexecute;
+class passbyreftest {
+static class ref<t> {
+val zmiennaVal0
+val zmiennaVal1 = ; }
 }
-#endregion
-#region składowe icommand
-bool zmiennaBool0
-{
-return _canexecute == null ? true : _canexecute(parameter);
+string zmiennaString2
+val zmiennaVal3 = "changed";
 }
-public event eventhandler canexecutechanged
-{
-add
-{
-val zmiennaVal1 = null) commandmanager.requerysuggested += ue;
+int zmiennaInt4
+int zmiennaInt5 = x.val;
+val zmiennaVal6 = y.;
+val zmiennaVal7 = temp;
 }
-remove
-{
-val zmiennaVal2 = null) commandmanager.requerysuggested -= ue;
-}
-}
-public void execute(object parameter)
-{
-_execute(parameter);
-}
-#endregion
+string zmiennaString8
+var zmiennaVar9 = new ref(5);
+var zmiennaVar10 = new ref(10);
+var zmiennaVar11 = new ref("still unchanged");
+swap(a, b);
+changeme(s);
+int zmiennaInt12 = " + a.val + ", " +
+val zmiennaVal13 = " + b. + ", " +
+val zmiennaVal14 = " + s. );
 }
 }

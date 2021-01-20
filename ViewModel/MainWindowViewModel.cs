@@ -135,7 +135,7 @@ namespace CzyjToKod.ViewModel
 
                 try
                 {
-                    File1Length = $"Characters: {File.ReadAllText(value).Length}";
+                    File1Length = $"Ilość znaków: {File.ReadAllText(value).Length}";
                     File1Invalid = "";
                 }
                 catch (Exception e)
@@ -161,7 +161,7 @@ namespace CzyjToKod.ViewModel
 
                 try
                 {
-                    File2Length = $"Characters: {File.ReadAllText(value).Length}";
+                    File2Length = $"Ilość znaków: {File.ReadAllText(value).Length}";
                     File2Invalid = "";
                 }
                 catch (Exception e)
@@ -270,7 +270,7 @@ namespace CzyjToKod.ViewModel
             await Task.Run(() =>
             {
                 while (!File.Exists(Reinterpreter.Direction + "\\results.txt")) ;
-                System.Threading.Thread.Sleep(1000);
+                System.Threading.Thread.Sleep(500);
                 var jsonString = File.ReadAllText(Reinterpreter.Direction + "\\results.txt");
                 var results = JsonSerializer.Deserialize<ResultsData>(jsonString);
 
