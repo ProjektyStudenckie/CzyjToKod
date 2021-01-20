@@ -1,12 +1,12 @@
-using System.ComponentModel;
-namespace CzyjToKod.ViewModel.Base
+using system.componentmodel;
+namespace czyjtokod.viewmodel.base
 {
-public class ViewModelBase : INotifyPropertyChanged
+public class viewmodelbase : inotifypropertychanged
 {
-public event PropertyChangedEventHandler PropertyChanged;
+public event propertychangedeventhandler propertychanged;
 string zmiennaString0
 {
-PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+propertychanged?.invoke(this, new propertychangedeventargs(propertyname));
 }
 }
 }

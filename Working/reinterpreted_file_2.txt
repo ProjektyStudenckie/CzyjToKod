@@ -1,12 +1,41 @@
-using System.ComponentModel;
-namespace CzyjToKod.ViewModel.Base
+using system;
+using system.windows.input;
+namespace czyjtokod.viewmodel.base
 {
-public class ViewModelBase : INotifyPropertyChanged
+public class relaycommand : icommand
 {
-public event PropertyChangedEventHandler PropertyChanged;
-string zmiennaString0
+#region prywatne pola
+private readonly action<object> _execute;
+private readonly predicate<object> _canexecute;
+#endregion
+#region konstruktor
+public relaycommand(action<object> execute, predicate<object> canexecute = null)
 {
-PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+if (execute == null) throw new argumentnullexception(nameof(execute));
+_execute = execute;
+_canexecute = canexecute;
 }
+#endregion
+#region składowe icommand
+bool zmiennaBool0
+{
+return _canexecute == null ? true : _canexecute(parameter);
+}
+public event eventhandler canexecutechanged
+{
+add
+{
+val zmiennaVal1 = null) commandmanager.requerysuggested += ue;
+}
+remove
+{
+val zmiennaVal2 = null) commandmanager.requerysuggested -= ue;
+}
+}
+public void execute(object parameter)
+{
+_execute(parameter);
+}
+#endregion
 }
 }

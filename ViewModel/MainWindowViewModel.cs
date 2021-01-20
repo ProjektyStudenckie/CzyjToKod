@@ -26,9 +26,9 @@ namespace CzyjToKod.ViewModel
         private string _file1Path = "";
         private string _file2Path = "";
 
-        private int _s1Value=1;
-        private int _s2Value=1;
-        private int _s3Value=1;
+        private int _s1Value=0;
+        private int _s2Value=0;
+        private int _s3Value=0;
 
         private string _Value1 = nameLevenshtein;
         private string _Value2 = nameDamerau;
@@ -254,7 +254,7 @@ namespace CzyjToKod.ViewModel
                                 InvalidInput = "Nieprawidłowe pliki!";
                             }
                         },
-                        arg => (File1Invalid == "" && File2Invalid == "")
+                        arg => (File1Invalid == "" && File2Invalid == "" && !(s1Value.Equals(0) && s2Value.Equals(0) && s3Value.Equals(0)))
                      );
                 }
                 return _handleCheckClick;

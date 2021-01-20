@@ -1,0 +1,1 @@
+{"cosine": 0.24431363743997886, "jaro_similarity": 0.6121620755560014, "jaro_winkler_similarity": 0.6121620755560014, "levenshtein_distance": 658, "damerau_levenshtein_distance": 658, "hamming_distance": 826}
